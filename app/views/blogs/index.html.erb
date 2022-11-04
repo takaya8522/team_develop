@@ -17,7 +17,7 @@
     <td>
       <%= link_to "詳細", blog_path(blog.id) %>
       <%= link_to "編集", edit_blog_path(blog.id)  %>
-      <%= link_to "削除", blog_path(blog.id), method: :destroy  %>
+      <%= link_to "削除", blog_path(blog.id), method: :delete  %>
     </td>
   </tr>
   <% end %>

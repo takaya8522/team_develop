@@ -10,7 +10,6 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(params_valid)
-    @blog.user_id = current_user.id
     if @blog.save
       redirect_to blogs_path, notice: "blog was successfully created." 
     else
@@ -31,7 +30,7 @@ class BlogsController < ApplicationController
   end
 
   def update
-    blog = Blog.find(params[:id]) 
+    @blog = Blog.find(params[:id]) 
     if @blog.update(params_valid)  
       redirect_to blogs_path
     else
@@ -48,7 +47,7 @@ class BlogsController < ApplicationController
   private
   
   def params_valid
-    params.repuire(:blog).permit(:title, :content, :user_id)
+    params.require(:blog).permit(:title, :content)
   end
   
 end
