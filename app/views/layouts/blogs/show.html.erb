@@ -1,0 +1,16 @@
+<h1>詳細</h1>
+
+<p>投稿ユーザ名</p>
+<br>
+<%#= @blog.user.name %>
+
+<p>タイトル</p>
+<br>
+<%= @blog.title %>
+
+<p>内容</p>
+<br>
+<%= @blog.content %>
+
+<%= link_to "戻る" , blogs_path %>|
+<%= link_to "編集", edit_blog_path(blog.id) %>
