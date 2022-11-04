@@ -1,0 +1,27 @@
+<%= form_with(model: blog) do |f| %>
+  <% if blog.errors.any? %>
+    <div id="error_explanation">
+      <h2>エラーが<%= pluralize(blog.errors.count, "件") %> あります！</h2>
+
+      <ul>
+        <% blog.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
