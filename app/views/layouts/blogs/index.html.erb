@@ -1,0 +1,24 @@
+<h1>Blog一覧</h1>
+
+<p><%= link_to "新規投稿", new_blog_path %></p>
+
+<table>
+  <tr>
+    <th>投稿ユーザ名</th>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+  <% @blogs.each do |blog| %>
+  <tr>
+    <td><%#= blog.user.name %></td>
+    <td><%= blog.title %></td>
+    <td><%= blog.content %></td>
+    <td>
+      <%= link_to "詳細", blog_path(blog.id) %>
+      <%= link_to "編集", edit_blog_path(blog.id)  %>
+      <%= link_to "削除", blog_path(blog.id), method: :destroy  %>
+    </td>
+  </tr>
+  <% end %>
+</table>
